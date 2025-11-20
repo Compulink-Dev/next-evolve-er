@@ -6,6 +6,13 @@
 :root {
   --font-mono: 'Roboto Mono', monospace;
   --radius: 0.625rem;
+  
+  /* Brand Colors */
+  --brand-navy: #1e3a8a;
+  --brand-purple: #a855f7;
+  --brand-dark-navy: #0f172a;
+  --brand-light: #f8fafc;
+  
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
   --card: oklch(1 0 0);
@@ -46,7 +53,7 @@
 html {
   font-size: 18px;
   line-height: 32px;
-
+  scroll-behavior: smooth;
   background: rgb(0, 0, 0);
   -webkit-font-smoothing: antialiased;
 }
