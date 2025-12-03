@@ -74,6 +74,7 @@ export interface Config {
     payments: Payment;
     speakers: Speaker;
     programs: Program;
+    blogs: Blog;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -87,6 +88,7 @@ export interface Config {
     payments: PaymentsSelect<false> | PaymentsSelect<true>;
     speakers: SpeakersSelect<false> | SpeakersSelect<true>;
     programs: ProgramsSelect<false> | ProgramsSelect<true>;
+    blogs: BlogsSelect<false> | BlogsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -391,6 +393,88 @@ export interface Program {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blogs".
+ */
+export interface Blog {
+  id: string;
+  title: string;
+  /**
+   * URL-friendly version of the title (e.g., digital-transformation-africa)
+   */
+  slug: string;
+  /**
+   * Short summary of the blog post (2-3 sentences)
+   */
+  excerpt: string;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  featuredImage: string | Media;
+  author: string | User;
+  /**
+   * Name to display publicly (can be different from user account)
+   */
+  authorName: string;
+  /**
+   * e.g., Senior Editor, Tech Writer, etc.
+   */
+  authorTitle?: string | null;
+  category:
+    | 'technology-trends'
+    | 'digital-transformation'
+    | 'industry-insights'
+    | 'startup-ecosystem'
+    | 'cybersecurity'
+    | 'ai-ml'
+    | 'fintech'
+    | 'event-updates'
+    | 'success-stories'
+    | 'policy-regulation';
+  /**
+   * Add relevant keywords for better discoverability
+   */
+  tags?:
+    | {
+        tag?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Estimated reading time in minutes
+   */
+  readTime: number;
+  status: 'draft' | 'published' | 'archived';
+  /**
+   * Date when the blog post will be/was published
+   */
+  publishedAt?: string | null;
+  featured?: boolean | null;
+  /**
+   * Title for SEO purposes (optional)
+   */
+  metaTitle?: string | null;
+  /**
+   * Description for SEO purposes (optional)
+   */
+  metaDescription?: string | null;
+  views?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -423,6 +507,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'programs';
         value: string | Program;
+      } | null)
+    | ({
+        relationTo: 'blogs';
+        value: string | Blog;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -672,6 +760,36 @@ export interface ProgramsSelect<T extends boolean = true> {
       };
   notes?: T;
   order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blogs_select".
+ */
+export interface BlogsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  excerpt?: T;
+  content?: T;
+  featuredImage?: T;
+  author?: T;
+  authorName?: T;
+  authorTitle?: T;
+  category?: T;
+  tags?:
+    | T
+    | {
+        tag?: T;
+        id?: T;
+      };
+  readTime?: T;
+  status?: T;
+  publishedAt?: T;
+  featured?: T;
+  metaTitle?: T;
+  metaDescription?: T;
+  views?: T;
   updatedAt?: T;
   createdAt?: T;
 }
