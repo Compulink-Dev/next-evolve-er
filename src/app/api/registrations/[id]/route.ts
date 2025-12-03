@@ -1,0 +1,53 @@
+// app/api/registrations/[id]/route.ts
+import { NextRequest, NextResponse } from 'next/server'
+import { getPayload } from 'payload'
+import configPromise from '@/payload.config'
+
+export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  try {
+    const payload = await getPayload({ config: configPromise })
+    const { id } = await params // Await the params
+
+    const registration = await payload.findByID({
+      collection: 'registrations',
+      id,
+    })
+
+    return NextResponse.json({
+      success: true,
+      doc: registration,
+    })
+  } catch (error: any) {
+    console.error('Error fetching registration:', error)
+    return NextResponse.json(
+      { success: false, error: error.message || 'Registration not found' },
+      { status: 404 },
+    )
+  }
+}
+
+export async function PATCH(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  try {
+    const payload = await getPayload({ config: configPromise })
+    const { id } = await params // Await the params
+    const data = await request.json()
+
+    const registration = await payload.update({
+      collection: 'registrations',
+      id,
+      data,
+    })
+
+    return NextResponse.json({
+      success: true,
+      message: 'Registration updated successfully',
+      doc: registration,
+    })
+  } catch (error: any) {
+    console.error('Error updating registration:', error)
+    return NextResponse.json(
+      { success: false, error: error.message || 'Failed to update registration' },
+      { status: 500 },
+    )
+  }
+}

@@ -69,6 +69,9 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
+    registrations: Registration;
+    tickets: Ticket;
+    payments: Payment;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -77,6 +80,9 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    registrations: RegistrationsSelect<false> | RegistrationsSelect<true>;
+    tickets: TicketsSelect<false> | TicketsSelect<true>;
+    payments: PaymentsSelect<false> | PaymentsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -158,6 +164,120 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "registrations".
+ */
+export interface Registration {
+  id: string;
+  email: string;
+  type: 'attendee' | 'sponsor' | 'exhibitor';
+  status?: ('pending' | 'approved' | 'rejected' | 'paid' | 'cancelled') | null;
+  orderId?: string | null;
+  amount: number;
+  paymentMethod?: ('card' | 'mobile' | 'bank' | 'pending') | null;
+  attendeeDetails?: {
+    fullName: string;
+    phone: string;
+    organization: string;
+    position: string;
+    country: string;
+    ticketType: 'early-bird-1' | 'early-bird-2' | 'regular';
+    dietaryRestrictions?: string | null;
+  };
+  sponsorDetails?: {
+    companyName: string;
+    contactPerson: string;
+    phone: string;
+    website?: string | null;
+    sponsorshipTier: 'platinum' | 'gold' | 'silver' | 'bronze';
+    companyDescription: string;
+    numberOfTeamMembers: number;
+    teamMembers: string;
+    interestedInBooth?: boolean | null;
+  };
+  exhibitorDetails?: {
+    companyName: string;
+    contactPerson: string;
+    phone: string;
+    website?: string | null;
+    industry: string;
+    productsServices: string;
+    boothSize: 'small' | 'medium' | 'large';
+    boothNumber?: string | null;
+    numberOfTeamMembers: number;
+    teamMembers: string;
+    specialRequirements?: string | null;
+  };
+  qrCode?: (string | null) | Media;
+  paymentProof?: (string | null) | Media;
+  notes?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tickets".
+ */
+export interface Ticket {
+  id: string;
+  name: string;
+  description?: string | null;
+  type: 'attendee' | 'sponsor' | 'exhibitor';
+  subType?:
+    | (
+        | 'early-bird-1'
+        | 'early-bird-2'
+        | 'regular'
+        | 'platinum'
+        | 'gold'
+        | 'silver'
+        | 'bronze'
+        | 'small'
+        | 'medium'
+        | 'large'
+      )
+    | null;
+  price: number;
+  quantity: number;
+  available?: number | null;
+  earlyBirdEnd?: string | null;
+  benefits?:
+    | {
+        feature?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payments".
+ */
+export interface Payment {
+  id: string;
+  registration: string | Registration;
+  transactionId?: string | null;
+  amount: number;
+  currency?: ('USD' | 'ZWL') | null;
+  paymentMethod: 'card' | 'mobile' | 'bank' | 'cash';
+  status?: ('pending' | 'processing' | 'completed' | 'failed' | 'refunded') | null;
+  paymentProof?: (string | null) | Media;
+  mobileMoneyDetails?: {
+    provider?: ('ecocash' | 'onemoney' | 'telecash') | null;
+    phoneNumber?: string | null;
+    transactionCode?: string | null;
+  };
+  bankTransferDetails?: {
+    bankName?: string | null;
+    accountNumber?: string | null;
+    reference?: string | null;
+  };
+  notes?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -170,6 +290,18 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: string | Media;
+      } | null)
+    | ({
+        relationTo: 'registrations';
+        value: string | Registration;
+      } | null)
+    | ({
+        relationTo: 'tickets';
+        value: string | Ticket;
+      } | null)
+    | ({
+        relationTo: 'payments';
+        value: string | Payment;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -252,6 +384,114 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "registrations_select".
+ */
+export interface RegistrationsSelect<T extends boolean = true> {
+  email?: T;
+  type?: T;
+  status?: T;
+  orderId?: T;
+  amount?: T;
+  paymentMethod?: T;
+  attendeeDetails?:
+    | T
+    | {
+        fullName?: T;
+        phone?: T;
+        organization?: T;
+        position?: T;
+        country?: T;
+        ticketType?: T;
+        dietaryRestrictions?: T;
+      };
+  sponsorDetails?:
+    | T
+    | {
+        companyName?: T;
+        contactPerson?: T;
+        phone?: T;
+        website?: T;
+        sponsorshipTier?: T;
+        companyDescription?: T;
+        numberOfTeamMembers?: T;
+        teamMembers?: T;
+        interestedInBooth?: T;
+      };
+  exhibitorDetails?:
+    | T
+    | {
+        companyName?: T;
+        contactPerson?: T;
+        phone?: T;
+        website?: T;
+        industry?: T;
+        productsServices?: T;
+        boothSize?: T;
+        boothNumber?: T;
+        numberOfTeamMembers?: T;
+        teamMembers?: T;
+        specialRequirements?: T;
+      };
+  qrCode?: T;
+  paymentProof?: T;
+  notes?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tickets_select".
+ */
+export interface TicketsSelect<T extends boolean = true> {
+  name?: T;
+  description?: T;
+  type?: T;
+  subType?: T;
+  price?: T;
+  quantity?: T;
+  available?: T;
+  earlyBirdEnd?: T;
+  benefits?:
+    | T
+    | {
+        feature?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payments_select".
+ */
+export interface PaymentsSelect<T extends boolean = true> {
+  registration?: T;
+  transactionId?: T;
+  amount?: T;
+  currency?: T;
+  paymentMethod?: T;
+  status?: T;
+  paymentProof?: T;
+  mobileMoneyDetails?:
+    | T
+    | {
+        provider?: T;
+        phoneNumber?: T;
+        transactionCode?: T;
+      };
+  bankTransferDetails?:
+    | T
+    | {
+        bankName?: T;
+        accountNumber?: T;
+        reference?: T;
+      };
+  notes?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

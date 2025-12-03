@@ -8,7 +8,6 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const navLinks = [
-  { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
   { name: 'Program', href: '/program' },
   { name: 'Gallery', href: '/gallery' },
@@ -61,7 +60,7 @@ export function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`font-medium text-sm px-4 py-2 rounded-sm transition-all duration-200 relative ${
+                  className={`font-medium text-xs px-4 py-2 rounded-sm transition-all duration-200 relative ${
                     active
                       ? 'text-[#ff9900]'
                       : scrolled
@@ -77,10 +76,10 @@ export function Navbar() {
               )
             })}
             <Button
-              className={`font-semibold px-6 py-2 rounded-sm ml-4 transition-all duration-200 ${
+              className={`font-semibold px-6 py-2 rounded-sm ml-4 transition-all duration-200 text-xs ${
                 scrolled
                   ? 'bg-[#ff9900] hover:bg-[#ec7211] text-white'
-                  : 'bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border border-white/20'
+                  : 'bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border border-white/20 '
               }`}
               asChild
             >
@@ -124,7 +123,7 @@ export function Navbar() {
                       <Link
                         key={link.name}
                         href={link.href}
-                        className={`font-medium text-base py-2 transition-colors duration-200 flex items-center text-sm ${
+                        className={`font-medium  py-2 transition-colors duration-200 flex items-center text-xs${
                           active
                             ? 'text-[#ff9900] pl-2 border-l-4 border-[#ff9900]'
                             : 'text-white hover:text-[#ff9900] pl-2 border-l-4 border-transparent'
@@ -135,7 +134,7 @@ export function Navbar() {
                     )
                   })}
                   <Button
-                    className="bg-[#ff9900] hover:bg-[#ec7211] text-white text-sm font-semibold mt-4"
+                    className="bg-[#ff9900] hover:bg-[#ec7211] text-white  font-semibold mt-4 text-xs"
                     asChild
                   >
                     <Link href="/register">Register now</Link>

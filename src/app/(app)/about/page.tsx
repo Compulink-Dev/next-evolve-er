@@ -61,7 +61,7 @@ export default function AboutPage() {
               Overview
             </h2>
             <div className="w-20 h-1 bg-[#ff9900] mx-auto mb-6" />
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg text-gray-600  mx-auto leading-relaxed">
               The Evolve ICT Summit stands as Zimbabwe&apos;s premier digital transformation forum,
               a flagship platform uniting leaders across policy, business, academia, and technology
               to shape Africa&apos;s digital future.
@@ -113,7 +113,7 @@ export default function AboutPage() {
               Our Purpose
             </h2>
             <div className="w-20 h-1 bg-[#ff9900] mx-auto mb-6" />
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600  mx-auto">
               To accelerate Africa&apos;s digital transformation by fostering collaboration,
               knowledge sharing, and investment in ICT innovation, and emerging technologies.
             </p>
@@ -226,7 +226,7 @@ export default function AboutPage() {
           <Link href="/register">
             <Button
               size="lg"
-              className="bg-[#ff9900] hover:bg-[#ec7211] text-white font-semibold mt-4 md:mt-0 text-base px-10 py-6 rounded-sm"
+              className="bg-[#ff9900] hover:bg-[#ec7211] text-white font-semibold mt-4 md:mt-0 text-sm px-10 py-6 rounded-sm"
             >
               Register Now
             </Button>

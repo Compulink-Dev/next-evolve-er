@@ -1,7 +1,5 @@
 'use client'
-
 import { Navbar } from '@/components/navbar'
-import { Footer } from '@/components/footer'
 import { Calendar, Users, Award, TrendingUp } from 'lucide-react'
 import React from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
@@ -263,13 +261,13 @@ export default function PreviousSummitPage() {
       {/* CTA */}
       <section className="py-20 px-4 bg-gradient-to-br from-slate-900 to-zinc-400">
         <div className="max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Don&apos;t Miss Summit 2026!</h2>
-          <p className="text-xl text-blue-100 mb-8">
+          <h2 className="text-2xl md:text-4xl font-bold mb-6">Don&apos;t Miss Summit 2026!</h2>
+          <p className="text-md md:text-xl text-blue-100 mb-8">
             Join us for an even bigger and better event on June 11-12, 2026
           </p>
           <Link
-            href="/"
-            className="inline-block bg-[#ff9900] hover:bg-purple-600 text-white font-bold text-lg px-12 py-4 rounded-lg transition-colors"
+            href="/register"
+            className="inline-block bg-[#ff9900] hover:bg-amber-600 text-white text-sm font-bold px-12 py-4 rounded-lg transition-colors"
           >
             Register for 2026
           </Link>

@@ -39,7 +39,7 @@ export default function ContactPage() {
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
           <span className="text-[#ff9900]">Contact</span> Us
         </h1>
-        <p className="text-md md:text-lg text-gray-300 max-w-3xl mx-auto">
+        <p className="text-md md:text-lg text-gray-300 mx-auto">
           {` Have questions about EVOLVE ICT SUMMIT 2026? We're here to help! `}
           {` Reach out to our team for any inquiries about the summit, partnerships, or ticket information.`}
         </p>

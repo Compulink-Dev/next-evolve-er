@@ -570,12 +570,12 @@ export default function ProgramPage() {
             discussions and networking.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button className="bg-[#ff9900] hover:bg-[#ec7211] text-white px-8 py-3 text-lg">
+            <Button className="bg-[#ff9900] hover:bg-[#ec7211] text-white px-8 py-3 text-sm">
               Register Now
             </Button>
             <Button
               variant="outline"
-              className="border-white text-white hover:bg-white/10 px-8 py-3 text-lg"
+              className="border-white text-black hover:bg-white/10 px-8 py-3 text-sm"
             >
               View Speakers
             </Button>

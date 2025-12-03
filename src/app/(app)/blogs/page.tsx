@@ -1,9 +1,6 @@
 import { Navbar } from '@/components/navbar'
-import { Footer } from '@/components/footer'
-import { FileText, Calendar, User, ArrowRight } from 'lucide-react'
+import { FileText, Calendar, User } from 'lucide-react'
 import React from 'react'
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
 import SubHero from '@/components/sub-hero'
 
 export default function BlogsPage() {

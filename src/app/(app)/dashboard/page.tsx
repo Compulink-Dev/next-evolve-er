@@ -310,7 +310,10 @@ export default function DashboardPage() {
                 </div>
 
                 <div className="mt-6 pt-6 border-t border-gray-200">
-                  <Button className="w-full bg-amber-500 hover:bg-amber-600 text-white" asChild>
+                  <Button
+                    className="w-full bg-amber-500 hover:bg-amber-600 text-white text-xs"
+                    asChild
+                  >
                     <Link href="/program">View Full Program</Link>
                   </Button>
                 </div>
