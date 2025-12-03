@@ -1,12 +1,9 @@
 'use client'
 
 import { Navbar } from '@/components/navbar'
-import { Footer } from '@/components/footer'
-import { ArrowRight, Image as ImageIcon, Play } from 'lucide-react'
+import { Image as ImageIcon, Play } from 'lucide-react'
 import React, { useState } from 'react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
 import SubHero from '@/components/sub-hero'
 
 interface MediaItem {
@@ -23,48 +20,48 @@ const sampleImages: MediaItem[] = [
   {
     id: 1,
     type: 'image',
-    url: '/placeholder.jpg',
-    thumbnail: '/placeholder.jpg',
+    url: '/placeholder.png',
+    thumbnail: '/placeholder.png',
     title: 'Opening Ceremony 2025',
     description: 'The grand opening of Evolve ICT Summit 2025',
   },
   {
     id: 2,
     type: 'image',
-    url: '/placeholder.jpg',
-    thumbnail: '/placeholder.jpg',
+    url: '/placeholder.png',
+    thumbnail: '/placeholder.png',
     title: 'Keynote Address',
     description: 'Minister of ICT delivering the keynote speech',
   },
   {
     id: 3,
     type: 'image',
-    url: '/placeholder.jpg',
-    thumbnail: '/placeholder.jpg',
+    url: '/placeholder.png',
+    thumbnail: '/placeholder.png',
     title: 'Tech Exhibition',
     description: 'Innovative technology showcase',
   },
   {
     id: 4,
     type: 'image',
-    url: '/placeholder.jpg',
-    thumbnail: '/placeholder.jpg',
+    url: '/placeholder.png',
+    thumbnail: '/placeholder.png',
     title: 'Panel Discussion',
     description: 'Women in Tech Leadership panel',
   },
   {
     id: 5,
     type: 'image',
-    url: '/placeholder.jpg',
-    thumbnail: '/placeholder.jpg',
+    url: '/placeholder.png',
+    thumbnail: '/placeholder.png',
     title: 'Networking Session',
     description: 'Delegates networking during the event',
   },
   {
     id: 6,
     type: 'image',
-    url: '/placeholder.jpg',
-    thumbnail: '/placeholder.jpg',
+    url: '/placeholder.png',
+    thumbnail: '/placeholder.png',
     title: 'Innovation Showcase',
     description: 'Startups presenting their innovations',
   },
@@ -74,34 +71,36 @@ const sampleVideos: MediaItem[] = [
   {
     id: 1,
     type: 'video',
-    url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    thumbnail: '/placeholder.jpg',
-    title: 'Summit 2025 Highlights',
-    description: 'Watch the best moments from the 2025 summit',
+    url: 'https://www.youtube.com/embed/G3OkPRWPt5Q',
+    thumbnail: '/placeholder.png',
+    title: 'Evolve ICT Africa Summit | 2024 ',
+    description:
+      "Evolve ICT Africa Summit | 2024 Snippet| Hon T.A. Mavetera's keynote speech | Douglas Mboweni",
   },
   {
     id: 2,
     type: 'video',
-    url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    thumbnail: '/placeholder.jpg',
-    title: 'Keynote Speech',
-    description: 'Full recording of the opening keynote',
+    url: 'https://www.youtube.com/embed/2LF1yn4hnSA',
+    thumbnail: '/placeholder.png',
+    title: 'Panel Discussion ',
+    description: 'Panel Discussion Evolve ICT Summit 2024 | Summit Highlights',
   },
   {
     id: 3,
     type: 'video',
-    url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    thumbnail: '/placeholder.jpg',
-    title: 'Innovation Pitch',
-    description: 'Top startup pitches from the competition',
+    url: 'https://www.youtube.com/embed/-wC83hcM1WA',
+    thumbnail: '/placeholder.png',
+    title: 'Evolve ICT Summit 2025',
+    description:
+      'Evolve ICT Summit 2025| Opening Remarks| Co - Founders of Compulink Holdings | Day 1',
   },
   {
     id: 4,
     type: 'video',
-    url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    thumbnail: '/placeholder.jpg',
-    title: 'Event Recap',
-    description: 'Complete event summary and attendee testimonials',
+    url: 'https://www.youtube.com/embed/uN26v2_JW7s',
+    thumbnail: '/placeholder.png',
+    title: 'Evolve ICT Summit On Cards',
+    description: 'Evolve ICT Summit On Cards | ZTN Prime | Morning Rush',
   },
 ]
 
@@ -166,7 +165,7 @@ export default function GalleryPage() {
                 <div className="relative aspect-video overflow-hidden rounded-lg mb-3">
                   <div className="w-full h-full bg-[#f3f3f3]" />
                   <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors flex items-center justify-center">
-                    <div className="w-16 h-16 bg-[#ff9900] group-hover:bg-purple-600 rounded-full flex items-center justify-center transition-colors">
+                    <div className="w-16 h-16 bg-[#ff9900] group-hover:bg-amber-600 rounded-full flex items-center justify-center transition-colors">
                       <Play className="w-8 h-8 text-white ml-1" />
                     </div>
                   </div>
