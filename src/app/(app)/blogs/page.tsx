@@ -14,7 +14,7 @@ interface BlogPost {
   title: string
   slug: string
   excerpt: string
-  content: any // Rich text content
+  content: any // Rich text contentred
   featuredImage: {
     url: string
     alt?: string
@@ -186,11 +186,11 @@ export default function BlogsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-slate-900">
         <Navbar />
         <div className="pt-32 flex flex-col items-center justify-center">
           <Loader2 className="h-12 w-12 animate-spin text-[#ff9900] mb-4" />
-          <span className="text-gray-600">Loading blog posts...</span>
+          <span className="text-[#ff9900]">Loading blog posts...</span>
         </div>
       </div>
     )
@@ -249,7 +249,7 @@ export default function BlogsPage() {
                     className={`dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition ${showFeaturedOnly ? 'transform translate-x-6' : ''}`}
                   ></div>
                 </div>
-                <div className="ml-3 text-gray-700 font-medium">Show Featured Only</div>
+                <div className="ml-3 text-gray-700 text-xs font-medium">Show Featured Only</div>
               </label>
             </div>
           </div>
@@ -427,7 +427,7 @@ export default function BlogsPage() {
             event updates directly in your inbox.
           </p>
           <div className="max-w-md mx-auto">
-            <div className="flex gap-3">
+            <div className="flex flex-col md:flex-row my-2 gap-3">
               <input
                 type="email"
                 placeholder="Enter your email"

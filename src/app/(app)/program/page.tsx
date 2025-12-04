@@ -15,11 +15,6 @@ import {
   Briefcase,
   Network,
   Video,
-  Award,
-  BarChart,
-  Globe,
-  Shield,
-  Zap,
   ChevronRight,
   Download,
   Share2,
@@ -264,11 +259,11 @@ export default function ProgramPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-slate-900">
         <Navbar />
         <div className="pt-32 flex items-center justify-center">
           <Loader2 className="h-8 w-8 animate-spin text-[#ff9900]" />
-          <span className="ml-2 text-gray-600">Loading program schedule...</span>
+          <span className="ml-2 text-[#ff9900]">Loading program schedule...</span>
         </div>
       </div>
     )
