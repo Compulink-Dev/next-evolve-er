@@ -17,7 +17,7 @@ export function OPTIONS() {
 export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
     const payload = await getPayload({ config: configPromise })
-    const { id } = await params // Await the params
+    const { id } = await params
 
     const registration = await payload.findByID({
       collection: 'registrations',
@@ -40,7 +40,7 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
 export async function PATCH(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
     const payload = await getPayload({ config: configPromise })
-    const { id } = await params // Await the params
+    const { id } = await params
     const data = await request.json()
 
     const registration = await payload.update({
@@ -58,6 +58,32 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
     console.error('Error updating registration:', error)
     return NextResponse.json(
       { success: false, error: error.message || 'Failed to update registration' },
+      { status: 500 },
+    )
+  }
+}
+
+export async function DELETE(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> },
+) {
+  try {
+    const payload = await getPayload({ config: configPromise })
+    const { id } = await params
+
+    await payload.delete({
+      collection: 'registrations',
+      id,
+    })
+
+    return NextResponse.json({
+      success: true,
+      message: 'Registration deleted successfully',
+    })
+  } catch (error: any) {
+    console.error('Error deleting registration:', error)
+    return NextResponse.json(
+      { success: false, error: error.message || 'Failed to delete registration' },
       { status: 500 },
     )
   }
