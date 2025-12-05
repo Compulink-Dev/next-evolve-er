@@ -26,7 +26,7 @@ function Home() {
       {/* Hero Section */}
       <section
         id="home"
-        className="min-h-screen flex items-center justify-center px-4 pt-20 bg-gradient-to-br from-[#170d43] via-[#161e2e] to-[#0f1419] relative overflow-hidden"
+        className="min-h-screen flex items-center justify-center px-4 pt-20 bg-gradient-to-br from-[#170d43] via-[#2c162e] to-[#150f19] relative overflow-hidden"
       >
         {/* Subtle grid background */}
         <div className="absolute inset-0 opacity-5">
@@ -75,7 +75,7 @@ function Home() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
             <Button
               size="lg"
-              className="bg-[#ffcc00] hover:bg-[#ec7211] text-white font-semibold text-sm px-10 py-6 rounded-sm transition-all duration-200"
+              className="bg-[#ffcc00] w-full md:w-auto hover:bg-[#ec7211] text-white font-semibold text-sm px-10 py-6 rounded-sm transition-all duration-200"
               asChild
             >
               <Link href="/register">
@@ -85,7 +85,7 @@ function Home() {
             <Button
               size="lg"
               variant="outline"
-              className="bg-transparent hover:bg-white/10 text-white border-white/30 font-semibold text-sm px-10 py-6 rounded-sm transition-all duration-200"
+              className="bg-transparent w-full md:w-auto hover:bg-white/10 text-white border-white/30 font-semibold text-sm px-10 py-6 rounded-sm transition-all duration-200"
               asChild
             >
               <Link href="#about">Learn more</Link>
@@ -439,7 +439,7 @@ function Home() {
             </div>
             <Button
               size="lg"
-              className="bg-[#ffcc00] hover:bg-[#ec7211] text-white font-semibold text-sm px-10 py-6 rounded-sm"
+              className="bg-[#ffcc00] hover:bg-[#ec7211] text-white font-semibold text-sm rounded-sm w-full md:w-auto"
             >
               Become an Exhibitor
             </Button>

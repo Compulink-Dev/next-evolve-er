@@ -20,7 +20,7 @@ export default function ContactPage() {
     {
       icon: <MapPin className="h-6 w-6" />,
       title: 'Location',
-      details: ['123 Tech Street', 'San Francisco, CA 94107'],
+      details: ['313 Samora Machel Ave, Eastlea Harare, Zimbabwe'],
       description: 'Visit our headquarters',
     },
     {
@@ -47,42 +47,6 @@ export default function ContactPage() {
 
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8">
-          <div className="">
-            <ContactForm />
-
-            {/* FAQ Section */}
-            <Card className="bg-white/5 backdrop-blur-sm border-gray-700 mt-16">
-              <CardContent className="p-8">
-                <h2 className="text-2xl font-bold mb-6 text-[#ffcc00]">
-                  Frequently Asked Questions
-                </h2>
-                <div className="space-y-4">
-                  <div className="border-b border-gray-700 pb-4">
-                    <h3 className="font-semibold mb-2">When will tickets be available?</h3>
-                    <p className="text-gray-300 text-sm">
-                      Early bird tickets will be available starting March 1, 2026. Sign up for our
-                      newsletter to get notified.
-                    </p>
-                  </div>
-                  <div className="border-b border-gray-700 pb-4">
-                    <h3 className="font-semibold mb-2">Can I sponsor the event?</h3>
-                    <p className="text-gray-300 text-sm">
-                      Yes! We offer various sponsorship packages. Contact our partnerships team at
-                      partnerships@evolveictsummit.com
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-2">Is the venue accessible?</h3>
-                    <p className="text-gray-300 text-sm">
-                      Absolutely. Our venue is fully accessible. Please let us know if you require
-                      any special accommodations.
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
           {/* Contact Information */}
           <div className="space-y-6">
             <Card className="bg-white/5 backdrop-blur-sm border-gray-700">
@@ -119,6 +83,41 @@ export default function ContactPage() {
               </CardContent>
             </Card>
           </div>
+          <div className="">
+            <ContactForm />
+
+            {/* FAQ Section */}
+            <Card className="bg-white/5 backdrop-blur-sm border-gray-700 mt-16">
+              <CardContent className="p-8">
+                <h2 className="text-2xl font-bold mb-6 text-[#ffcc00]">
+                  Frequently Asked Questions
+                </h2>
+                <div className="space-y-4">
+                  <div className="border-b border-gray-700 pb-4">
+                    <h3 className="font-semibold mb-2">When will tickets be available?</h3>
+                    <p className="text-gray-300 text-sm">
+                      Early bird tickets will be available starting March 1, 2026. Sign up for our
+                      newsletter to get notified.
+                    </p>
+                  </div>
+                  <div className="border-b border-gray-700 pb-4">
+                    <h3 className="font-semibold mb-2">Can I sponsor the event?</h3>
+                    <p className="text-gray-300 text-sm">
+                      Yes! We offer various sponsorship packages. Contact our partnerships team at
+                      partnerships@evolveictsummit.com
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-2">Is the venue accessible?</h3>
+                    <p className="text-gray-300 text-sm">
+                      Absolutely. Our venue is fully accessible. Please let us know if you require
+                      any special accommodations.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
 
         {/* Map Placeholder */}
@@ -130,7 +129,7 @@ export default function ContactPage() {
                 <MapPin className="h-12 w-12 text-[#ffcc00] mx-auto mb-4" />
                 <p className="text-gray-300">Conference Center Location Map</p>
                 <p className="text-sm text-gray-400 mt-2">
-                  123 Tech Street, San Francisco, CA 94107
+                  313 Samora Machel Ave, Eastlea Harare, Zimbabwe
                 </p>
               </div>
             </div>
